@@ -1,0 +1,14 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.center {
+  text-align: center;
+}
+
+#logo {
+  float: left;
+  margin-right:15px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
