@@ -1,0 +1,12 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <!-- @usersからRailsはUserオブジェクトのリストと推測し、パーシャルに合わせて
+    各ユーザーを列挙して表示 -->
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>

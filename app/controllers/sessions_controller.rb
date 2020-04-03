@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       log_in @user
       # ユーザー保持次第でログイン処理変化
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-      redirect_to @user # user_url(user)
+      redirect_back_or @user # user_url(user)
     else
       flash.now[:danger] = 'Eメールまたはパスワードが違います'
       render 'new'

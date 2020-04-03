@@ -11,6 +11,9 @@ gem 'rails', '~> 5.1.7'
 gem 'bootstrap-sass', '3.3.7'
 gem 'rails-controller-testing'
 gem 'bcrypt', '3.1.12' # パスワードのハッシュ化
+gem 'faker',  '1.7.3' # ダミーユーザー
+gem 'will_paginate',           '3.1.6' # ページネーション
+gem 'bootstrap-will_paginate', '1.0.0' # ページネーション
 gem 'jquery-rails', '4.3.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', groups: %w(test development), require: false
