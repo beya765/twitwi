@@ -70,7 +70,7 @@ Rails.application.configure do
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_mailer.default_url_options = { host: 'twitwi-0324.heroku.com' }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
