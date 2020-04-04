@@ -66,11 +66,11 @@ Rails.application.configure do
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'twitwi-0324.heroku.com',
+    :domain         => 'twitwi-0324.herokuapp.com',
     :authentication => :plain,
   }
   ActionMailer::Base.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'twitwi-0324.heroku.com', protocol: 'https'  }
+  config.action_mailer.default_url_options = { host: 'twitwi-0324.herokuapp.com', protocol: 'https'  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
