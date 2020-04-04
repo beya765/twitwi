@@ -3,6 +3,8 @@ require 'test_helper'
 class UsersLoginTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:michael) # fixtures/users.yml より読み込み
+    # アクティブ化されていないユーザをセットアップ
+    @non_activated_user = users(:hoge)
   end
 
   test "ログイン失敗時、フラッシュメッセージは残留しない" do
@@ -57,5 +59,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     # クッキーを削除してログイン
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
+  end
+
+  test "有効化されていないユーザーでログイン" do
+    log_in_as(@non_activated_user)
+    assert_redirected_to root_url
   end
 end

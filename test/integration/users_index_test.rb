@@ -4,6 +4,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   def setup
     @admin     = users(:michael) # fixture
     @non_admin = users(:archer) 
+    @non_activated_user = users(:hoge)
   end
   
   test "ページネーションを含めたUsersIndexのテスト" do
@@ -12,7 +13,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_template 'users/index'
     assert_select 'div.pagination', count: 2
     # paginateメソッドで30件取り出し、ユーザーリンクなどを1件ずつチェック
-    User.paginate(page: 1).each do |user|
+    User.where(activated: true).paginate(page: 1).each do |user|
       assert_select 'a[href=?]', user_path(user), text: user.name
       unless user == @admin
         assert_select 'a[href=?]', user_path(user), text: '(このユーザーを削除する)'
@@ -21,6 +22,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', -1 do
       delete user_path(@non_admin)
     end
+    assert_select 'a[href=?]', user_path(@non_activated_user), count: 0
   end
 
   test "管理者ユーザー出ない場合、削除リンクは表示されない" do
