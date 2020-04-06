@@ -13,7 +13,7 @@ gem 'rails-controller-testing'
 gem 'bcrypt', '3.1.12' # パスワードのハッシュ化
 gem 'faker',  '1.7.3' # ダミーユーザー
 gem 'carrierwave',             '1.2.2' # 画像アップローダー
-gem 'mini_magick',             '4.7.0' # 画像をリサイズ
+gem 'mini_magick',             '4.9.4' # 画像をリサイズ
 gem 'will_paginate',           '3.1.6' # ページネーション
 gem 'bootstrap-will_paginate', '1.0.0' # ページネーション
 gem 'rails_12factor', group: :production
