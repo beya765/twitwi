@@ -26,3 +26,10 @@ User.create!(name:  name,
     activated: true,
     activated_at: Time.zone.now)
 end
+
+# マイクロポストを追加
+users = User.order(:created_at).take(6) # 最初の6人
+50.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.microposts.create!(content: content) }
+end

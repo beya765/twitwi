@@ -1,7 +1,7 @@
 <% provide(:title, "home") %>
-<div class="container center jumbotron">
-  <h1>▲ロゴ▲</h1>
-  <p>ついつい呟いちゃおう</p>
-  <%= link_to "さぁ行こう", signup_path, class: "btn btn-primary" %>
-  <%= image_tag("hanemaru.jpg", alt: "hanemaru logo") %>
-</div>
+
+<% if logged_in? %>
+  <%= render 'static_pages/user_logged_in' %>
+<% else %>
+  <%= render 'static_pages/user_not_logged_in' %>
+<% end %>
