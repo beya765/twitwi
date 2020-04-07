@@ -1,0 +1,3 @@
+<!-- unfollowパーシャルで更新, フォロワーのカウントを更新 -->
+$("#follow_form").html("<%= escape_javascript(render('users/unfollow')) %>");
+$("#followers").html('<%= @user.followers.count %>');

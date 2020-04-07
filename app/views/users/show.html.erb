@@ -7,9 +7,14 @@
         <%= @user.name %>
       </h1>
     </section>
+    <!-- フォロワーの統計情報 -->
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <!-- マイクロポストが存在すれば、showページに表示 -->
   <div class="col-md-8">
+    <%= render 'follow_form' if logged_in? %>
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
